@@ -26,10 +26,10 @@ app.use(morgan('dev'))
 
 // -- APP ROUTES --
 const navMenus = [
-  { link: '/qbank', icon: 'fas fa-warehouse', label: 'Question Bank' },
-  { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Quesioner' },
-  { link: '/result', icon: 'fas fa-poll', label: 'Result' },
-  { link: '/settings', icon: 'fas fa-cogs', label: 'Settings' },
+  { link: '/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
+  { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
+  { link: '/result', icon: 'fas fa-poll', label: 'Hasil' },
+  { link: '/settings', icon: 'fas fa-cogs', label: 'Pengaturan' },
 ]
 
 // index
