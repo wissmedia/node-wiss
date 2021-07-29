@@ -26,7 +26,7 @@ app.use(morgan('dev'))
 
 // -- APP ROUTES --
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {navTitle: 'Index'})
 })
 
 // 404 page
