@@ -25,11 +25,17 @@ app.use(morgan('dev'))
 // -- END EXPRESS APP --
 
 // -- APP ROUTES --
+// index
 app.get('/', (req, res) => {
   res.render('index', {navTitle: 'Beranda'})
 })
+
+// qbank
 app.get('/qbank', (req, res) => {
-  res.render('pages/qbank', {navTitle: 'Beranda'})
+  res.render('pages/qbank', {navTitle: 'Q-Bank'})
+})
+app.get('/qbank-add', (req, res) => {
+  res.render('pages/qbank-add', {navTitle: 'Q-Bank Add'})
 })
 
 // 404 page
