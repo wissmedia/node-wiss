@@ -25,9 +25,19 @@ app.use(morgan('dev'))
 // -- END EXPRESS APP --
 
 // -- APP ROUTES --
+const navMenus = [
+  { link: '/qbank', icon: 'fas fa-warehouse', label: 'Question Bank' },
+  { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Quesioner' },
+  { link: '/result', icon: 'fas fa-poll', label: 'Result' },
+  { link: '/settings', icon: 'fas fa-cogs', label: 'Settings' },
+]
+
 // index
 app.get('/', (req, res) => {
-  res.render('index', {navTitle: 'Beranda'})
+  const menus = [
+    { link: '/qbank', icon: 'fas fa-warehouse', label: 'Question Bank' },
+  ]
+  res.render('index', {navTitle: 'Beranda', navMenus})
 })
 
 // qbank
