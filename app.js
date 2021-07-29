@@ -26,6 +26,6 @@ app.use(morgan('dev'))
 
 // -- APP ROUTES --
 app.get('/', (req, res) => {
-  res.json({message: 'app is running'})
+  res.render('index')
 })
 // -- END APP ROUTES --
