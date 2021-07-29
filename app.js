@@ -15,3 +15,4 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
   res.json({message: 'app is running'})
 })
+// -- END APP ROUTES --
