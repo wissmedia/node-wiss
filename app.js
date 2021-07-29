@@ -1,6 +1,7 @@
 // -- IMPORT --
 const express = require('express')
 const path = require('path')
+const morgan = require('morgan')
 // -- END IMPORT--
 
 // -- EXPRESS APP --
@@ -17,6 +18,10 @@ app.set('view engine', 'ejs')
 
 // register file statik
 app.use(express.static(path.join(__dirname, 'public')))
+
+// register logger
+app.use(morgan('dev'))
+
 // -- END EXPRESS APP --
 
 // -- APP ROUTES --
