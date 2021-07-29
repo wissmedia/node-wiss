@@ -28,6 +28,9 @@ app.use(morgan('dev'))
 app.get('/', (req, res) => {
   res.render('index', {navTitle: 'Beranda'})
 })
+app.get('/qbank', (req, res) => {
+  res.render('pages/qbank', {navTitle: 'Beranda'})
+})
 
 // 404 page
 app.use((req, res) => {
