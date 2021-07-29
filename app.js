@@ -11,6 +11,10 @@ const port = process.env.PORT || 2020
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
 })
+
+// register view engine
+app.set('view engine', 'ejs')
+
 // register file statik
 app.use(express.static(path.join(__dirname, 'public')))
 // -- END EXPRESS APP --
