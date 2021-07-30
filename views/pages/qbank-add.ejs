@@ -3,22 +3,32 @@
 
 <%- include('../partials/head.ejs') %>
 
-<body>
+  <body>
 
-  <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
 
-  <div class="container">
-    <div class="card-container">
-      <!-- Code here -->
-      <h1>QBank add</h1>
-      <!-- END Code Here -->
-    </div>
-  </div>
+      <div class="container">
+        <div class="row-content">
+          <form>
+            <div class="content">
+              <div class="line"></div>
+              <div class="bungkus-content edit">
+                <p>*Judul</p>
+                <input type="text" name="judul" id="judul" class="text" placeholder="Masukan judul" required>
+                <br>
+                <input type="text" name="deskripsi" id="deskripsi" class="text" placeholder="Masukan deskripsi">
+              </div>
+            </div>
 
-  <%- include('../partials/footer.ejs') %>
+            <button class="tombol tmb-utama">Kirim</button>
+          </form>
+        </div>
+      </div>
 
-  <script src="js/main.js"></script>
+      <%- include('../partials/footer.ejs') %>
 
-</body>
+        <script src="js/main.js"></script>
+
+  </body>
 
 </html>
