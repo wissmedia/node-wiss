@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 
 const Question = require('./models/question')
+const { render } = require('ejs')
 // -- END IMPORT--
 
 // -- EXPRESS APP --
@@ -67,12 +68,26 @@ app.post('/qbank', (req, res) => {
   const question = new Question(req.body)
 
   question.save()
-  .then((result) => {
-    res.redirect('/qbank')
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((result) => {
+      res.redirect('/qbank')
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+})
+
+app.get('/qbank/:id', (req, res) => {
+  const id = req.params.id
+  const navMenus = [
+    { link: '/qbank', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
+  ]
+  Question.findById(id)
+    .then((result) => {
+      res.render('pages/qbank-details', { question: result, navTitle: 'Detail Pertanyaan', navMenus })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 })
 
 app.get('/qbank/add', (req, res) => {
@@ -81,22 +96,17 @@ app.get('/qbank/add', (req, res) => {
   res.render('pages/qbank-add', { navTitle: 'Tambah Pertanyaan', menus, navMenus })
 })
 
-// try db, delete later
-// app.get('/qbank-add', (req, res) => {
-//   const question = new Question({
-//     title: 'First Q',
-//     desc: 'Nothing else'
-//   })
+app.delete('/qbank/:id', (req, res) => {
+  const id = req.params.id
 
-//   question.save()
-//     .then((result) => {
-//       res.send(result)
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//     })
-// })
-// end try db
+  Question.findByIdAndDelete(id)
+    .then((result) => {
+      res.json({ redirect: '/qbank' })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+})
 
 // kuesioner
 app.get('/quesioner', (req, res) => {
