@@ -50,6 +50,13 @@ app.get('/qbank-add', (req, res) => {
   res.render('pages/qbank-add', {navTitle: 'Q-Bank Add', menus, navMenus})
 })
 
+// kuesioner
+app.get('/quesioner', (req, res) => {
+  const menus = []
+  const navMenus = []
+  res.render('pages/quesioner', {navTitle: 'Quesioner', menus, navMenus})
+})
+
 // settings
 app.get('/settings', (req, res) => {
   const menus = []
