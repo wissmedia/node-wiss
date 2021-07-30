@@ -41,13 +41,15 @@ app.get('/', (req, res) => {
 // qbank
 app.get('/qbank', (req, res) => {
   const menus = []
-  const navMenus = []
-  res.render('pages/qbank', {navTitle: 'Q-Bank',menus, navMenus})
+  const navMenus = [
+    { link: '/qbank-add', icon: 'fas fa-plus-circle', label: 'Tambah' },
+  ]
+  res.render('pages/qbank', {navTitle: 'Bank Pertanyaan',menus, navMenus})
 })
 app.get('/qbank-add', (req, res) => {
   const menus = []
   const navMenus = []
-  res.render('pages/qbank-add', {navTitle: 'Q-Bank Add', menus, navMenus})
+  res.render('pages/qbank-add', {navTitle: 'Tambah Pertanyaan', menus, navMenus})
 })
 
 // kuesioner
