@@ -2,16 +2,24 @@
 const express = require('express')
 const path = require('path')
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 // -- END IMPORT--
 
 // -- EXPRESS APP --
 const app = express()
 const port = process.env.PORT || 2020
+const dbURI = 'mongodb://kitakoleksi.my.id:27017/node-wiss'
 
-// buka port
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
+// MOngoDB Connect dan buka port app
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(result => {
+  console.log(`Connected to DB at ${dbURI}`)
+  // buka port
+  app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`)
+  })
 })
+.catch(err => console.log(err))
 
 // register view engine
 app.set('view engine', 'ejs')
