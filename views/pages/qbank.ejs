@@ -13,7 +13,7 @@
           <% if (questions.length> 0) { %>
             <% questions.forEach(item=> { %>
               <div class="card-block">
-                <a href="#">
+                <a href="/qbank/<%= item._id %> ">
                   <h3>
                     <!-- <i class="<%= item.icon %>"></i> -->
                     <%= item.title %>
