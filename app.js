@@ -66,7 +66,9 @@ app.get('/result', (req, res) => {
 
 // settings
 app.get('/settings', (req, res) => {
-  const menus = []
+  const menus = [
+    { link: '/', icon: 'fas fa-user-circle', label: 'Akun' },
+  ]
   const navMenus = []
   res.render('pages/settings', {navTitle: 'Settings', menus, navMenus})
 })
