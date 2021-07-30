@@ -3,7 +3,7 @@ const Question = require('../models/question')
 const router = express.Router()
 
 // qbank
-router.get('/qbank', (req, res) => {
+router.get('/', (req, res) => {
   const menus = []
   const navMenus = [
     { link: '/', icon: 'fas fa-home', label: 'Beranda' },
@@ -18,7 +18,7 @@ router.get('/qbank', (req, res) => {
     })
 })
 
-router.post('/qbank', (req, res) => {
+router.post('/', (req, res) => {
   console.log(req.body)
   const question = new Question(req.body)
 
@@ -31,13 +31,13 @@ router.post('/qbank', (req, res) => {
     })
 })
 
-router.get('/qbank/add', (req, res) => {
+router.get('/add', (req, res) => {
   const menus = []
   const navMenus = []
   res.render('pages/qbank-add', { navTitle: 'Tambah Pertanyaan', menus, navMenus })
 })
 
-router.get('/qbank/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const id = req.params.id
   const navMenus = [
     { link: '/qbank', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
@@ -51,7 +51,7 @@ router.get('/qbank/:id', (req, res) => {
     })
 })
 
-router.delete('/qbank/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
 
   Question.findByIdAndDelete(id)
