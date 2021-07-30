@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 })
 
 // qbank routes
-app.use('/qbank',qbankRoutes)
+app.use('/qbank', qbankRoutes)
 
 // kuesioner
 app.get('/quesioner', (req, res) => {
