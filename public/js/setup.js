@@ -2,6 +2,7 @@
 $(document).ready(function(){
     $("#add").click(function(){
         $(".add-list").show();
+        $("footer").css("background-color","transparent");
     });
 });
 
@@ -12,6 +13,7 @@ $(document).mouseup(function(e) {
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
         container.hide();
+        $("footer").css("background-color","#F9F9F9");
     }
 });
 
@@ -24,7 +26,7 @@ $(document).ready(function(){
             <div class="line"></div>
             <div class="bungkus-content edit">
                 <p>*Pertanyaan Singkat</p>
-                <input type="text" name="tanya" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban singkat">
+                <input type="text" name="tanya" id="tanya" class="text tanya" placeholder="Masukan pertanyaan untuk jawaban singkat">
                 <!-- Pratinjau kolom jawaban -->
                 <input type="text" name="jawab" id="jawab" class="pratinjau" placeholder="Teks jawaban singkat" disabled>
 
@@ -40,6 +42,7 @@ $(document).ready(function(){
         
         // Hide Pop Up Menu Add setelah pilih
         $(".add-list").hide();
+        $("footer").css("background-color","#F9F9F9");
     });
     
     // Jawab Panjang
@@ -65,6 +68,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Pilihan Ganda
@@ -76,15 +80,17 @@ $(document).ready(function(){
                     <p>*Pertanyaan Pilihan Ganda</p>
                     <input type="text" name="pilihanganda" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda">
                         
-                    <div class="edit-group">
+                    <div class="edit-group textpilihanGanda">
                         <input type="radio" name="pilih" id="pilih1" disabled>
                         <input type="text" name="opsi" id="opsi" class="text" placeholder="Opsi">
-                        <button id="del"><i class="fas fa-times"></i></button>
+                        <button class="del"><i class="fas fa-times"></i></button>
                     </div>
+
+                    <div class="opsipilihanGanda"></div>
 
                     <div class="edit-group">
                         <input type="radio" name="pilih" id="pilih1" disabled>
-                        <input type="text" name="opsi" id="opsi" class="text" placeholder="Tambah opsi">
+                        <input type="text" name="opsi" class="addOpsipilihanGanda" class="text" placeholder="Tambah opsi">
                         <button id="add-lain" class="add-lain">atau tambahkan "Lainnya"</button>
                     </div>
 
@@ -100,6 +106,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Kisi Pilihan Ganda
@@ -151,6 +158,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Kotak Centang
@@ -186,6 +194,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Petak Kotak Centang
@@ -237,6 +246,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Daftar Pilihan
@@ -271,6 +281,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Tanggal
@@ -296,6 +307,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Waktu
@@ -321,6 +333,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 
     // Skala Linear
@@ -370,6 +383,7 @@ $(document).ready(function(){
           
           // Hide Pop Up Menu Add setelah pilih
           $(".add-list").hide();
+          $("footer").css("background-color","#F9F9F9");
     });
 });
 
