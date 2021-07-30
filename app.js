@@ -25,24 +25,28 @@ app.use(morgan('dev'))
 // -- END EXPRESS APP --
 
 // -- APP ROUTES --
-const navMenus = [
-  { link: '/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
-  { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
-  { link: '/result', icon: 'fas fa-poll', label: 'Hasil' },
-  { link: '/settings', icon: 'fas fa-cogs', label: 'Pengaturan' },
-]
+
 
 // index
 app.get('/', (req, res) => {
-  const menus = [
-    { link: '/qbank', icon: 'fas fa-warehouse', label: 'Question Bank' },
+  const navMenus = [
+    { link: '/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
+    { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
+    { link: '/result', icon: 'fas fa-poll', label: 'Hasil' },
+    { link: '/settings', icon: 'fas fa-cogs', label: 'Pengaturan' },
   ]
   res.render('index', {navTitle: 'Beranda', navMenus})
 })
 
 // qbank
 app.get('/qbank', (req, res) => {
-  res.render('pages/qbank', {navTitle: 'Q-Bank'})
+  const navMenus = [
+    { link: '/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
+    { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
+    { link: '/result', icon: 'fas fa-poll', label: 'Hasil' },
+    { link: '/settings', icon: 'fas fa-cogs', label: 'Pengaturan' },
+  ]
+  res.render('pages/qbank', {navTitle: 'Q-Bank', navMenus})
 })
 app.get('/qbank-add', (req, res) => {
   res.render('pages/qbank-add', {navTitle: 'Q-Bank Add'})
