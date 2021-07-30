@@ -10,8 +10,24 @@
       <div class="container">
         <div class="card-container">
           <!-- Code here -->
-          <h1>QBank</h1>
-          <!-- END Code Here -->
+          <% if (questions.length> 0) { %>
+            <% questions.forEach(item=> { %>
+              <div class="card-block">
+                <a href="#">
+                  <h3>
+                    <!-- <i class="<%= item.icon %>"></i> -->
+                    <%= item.title %>
+                  </h3>
+                  <h3 class="card-label">
+                    <%= item.desc %>
+                  </h3>
+                </a>
+              </div>
+              <% }) %>
+                <% } else { %>
+                  <p>Loading...</p>
+                  <% } %>
+                    <!-- END Code Here -->
         </div>
       </div>
 
