@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+  <body>
+
+    <%- include('../partials/nav.ejs') %>
+
+      <div class="container">
+        <div class="card-container">
+          <!-- Code here -->
+          <div class="card-block">
+            <h2>
+              <%= question.title %>
+            </h2>
+            <h3 class="card-label">
+              <%= question.desc %>
+            </h3>
+          </div>
+          <!-- <a class="delete" data-doc="<%= question._id %>">delete</a> -->
+          <button class="tombol tmb-batal" data-doc="<%= question._id %>"><i class="fas fa-trash-alt"></i></button>
+          <!-- END Code Here -->
+        </div>
+      </div>
+
+      <%- include('../partials/footer.ejs') %>
+
+        <script src="/js/main.js"></script>
+        <script>
+          const trashcan = document.querySelector('button.tmb-batal')
+
+          trashcan.addEventListener('click', (e) => {
+            const endpoint = `/qbank/${trashcan.dataset.doc}`
+
+            fetch(endpoint, {
+              method: 'DELETE'
+            })
+              .then((response) => response.json())
+              .then((data) => window.location.href = data.redirect)
+              .catch(err => console.log(err))
+          })
+        </script>
+  </body>
+
+</html>
