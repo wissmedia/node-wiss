@@ -57,6 +57,13 @@ app.get('/quesioner', (req, res) => {
   res.render('pages/quesioner', {navTitle: 'Quesioner', menus, navMenus})
 })
 
+// hasil
+app.get('/result', (req, res) => {
+  const menus = []
+  const navMenus = []
+  res.render('pages/result', {navTitle: 'Result', menus, navMenus})
+})
+
 // settings
 app.get('/settings', (req, res) => {
   const menus = []
