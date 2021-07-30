@@ -234,6 +234,7 @@ nav{
 
 /* Body Content */
 .container{
+    padding-bottom: 110px;
     width: 40%;
     margin: 0 auto;
     font-size: 20px;
@@ -661,11 +662,11 @@ textarea:focus{
 
 /* Bottom Menu */
 footer{
-    position: sticky;
+    position: fixed;
     bottom: 0;
     width: 100%;
     overflow: hidden;
-    background-color: transparent;
+    background-color: #F9F9F9;
 }
 
 .bottom-menu{
