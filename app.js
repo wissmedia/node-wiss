@@ -40,16 +40,21 @@ app.get('/', (req, res) => {
 
 // qbank
 app.get('/qbank', (req, res) => {
-  const navMenus = [
-    { link: '/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
-    { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
-    { link: '/result', icon: 'fas fa-poll', label: 'Hasil' },
-    { link: '/settings', icon: 'fas fa-cogs', label: 'Pengaturan' },
-  ]
-  res.render('pages/qbank', {navTitle: 'Q-Bank', navMenus})
+  const menus = []
+  const navMenus = []
+  res.render('pages/qbank', {navTitle: 'Q-Bank',menus, navMenus})
 })
 app.get('/qbank-add', (req, res) => {
-  res.render('pages/qbank-add', {navTitle: 'Q-Bank Add'})
+  const menus = []
+  const navMenus = []
+  res.render('pages/qbank-add', {navTitle: 'Q-Bank Add', menus, navMenus})
+})
+
+// settings
+app.get('/settings', (req, res) => {
+  const menus = []
+  const navMenus = []
+  res.render('pages/settings', {navTitle: 'Settings', menus, navMenus})
 })
 
 // 404 page
