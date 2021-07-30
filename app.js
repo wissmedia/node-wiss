@@ -27,10 +27,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 // register view engine
 app.set('view engine', 'ejs')
 
-// register file statik
+// express middleware
 app.use(express.static(path.join(__dirname, 'public')))
-
-// register logger
+app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
 // -- END EXPRESS APP --
@@ -62,6 +61,20 @@ app.get('/qbank', (req, res) => {
       console.log(err)
     })
 })
+
+app.post('/qbank', (req, res) => {
+  console.log(req.body)
+  const question = new Question(req.body)
+
+  question.save()
+  .then((result) => {
+    res.redirect('/qbank')
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+})
+
 app.get('/qbank/add', (req, res) => {
   const menus = []
   const navMenus = []
