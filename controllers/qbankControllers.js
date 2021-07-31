@@ -22,11 +22,12 @@ const qbank_details = (req, res) => {
     { link: '/qbank', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
   ]
   Question.findById(id)
-    .then((result) => {
+    .then(result => {
+      if (!result) throw new Error('error')
       res.render('pages/qbank-details', { question: result, navTitle: 'Detail Pertanyaan', navMenus })
     })
-    .catch((err) => {
-      console.log(err)
+    .catch(err => {
+      res.status(404).render('404', { navTitle: '404' })
     })
 }
 
