@@ -98,6 +98,22 @@ input[type=checkbox]{
     font-size: 15px;
 }
 
+.tombol-md{
+    padding: 10px 35px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+}
+
+.tombol-block{
+    padding: 10px;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    font-size: 15px;
+}
+
 /* Tombol Sukses */
 .tmb-sukses{
     background-color: #70AF85;
@@ -692,6 +708,7 @@ footer{
 .menu{
     margin: 0 auto;
     text-align: center;
+    cursor: pointer;
 }
 
 .menu p{
