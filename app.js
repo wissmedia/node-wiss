@@ -10,7 +10,8 @@ const qbankRoutes = require('./routes/qbankRoutes')
 const app = express()
 const port = process.env.PORT || 2020
 const host = '0.0.0.0'
-const dbURI = 'mongodb://kitakoleksi.my.id:27017/node-auth'
+// const dbURI = 'mongodb://kitakoleksi.my.id:27017/node-auth'
+const dbURI = 'mongodb://nodewiss:nodewiss@kitakoleksi.my.id:2021/node-wiss'
 
 // MOngoDB Connect dan buka port app
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
