@@ -1,7 +1,6 @@
-const express = require('express')
+const {Router} = require('express')
 const qbankController = require('../controllers/qbankControllers')
-
-const router = express.Router()
+const router = Router()
 
 // qbank
 router.get('/add', qbankController.qbank_add_get)

@@ -3,7 +3,9 @@ const express = require('express')
 const path = require('path')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+
 const qbankRoutes = require('./routes/qbankRoutes')
+const authRoutes = require('./routes/authRoutes')
 // -- END IMPORT--
 
 // -- EXPRESS APP --
@@ -30,6 +32,7 @@ app.set('view engine', 'ejs')
 // express middleware
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.use(morgan('dev'))
 
 // -- END EXPRESS APP --
@@ -45,6 +48,9 @@ app.get('/', (req, res) => {
   ]
   res.render('index', { navTitle: 'Beranda', navMenus })
 })
+
+// auth routes
+app.use(authRoutes)
 
 // qbank routes
 app.use('/qbank', qbankRoutes)
@@ -71,6 +77,9 @@ app.get('/account', (req, res) => {
     { link: '/', icon: 'fas fa-user-circle', label: 'Panduan' },
     { link: '/', icon: 'fas fa-user-circle', label: 'Tentang' },
     { link: '/', icon: 'fas fa-user-circle', label: 'Kontak' },
+    { link: '/signup', icon: 'fas fa-user-circle', label: 'Daftar' },
+    { link: '/login', icon: 'fas fa-user-circle', label: 'Masuk' },
+    { link: '/logout', icon: 'fas fa-user-circle', label: 'Keluar' },
   ]
   const navMenus = [
     { link: '/', icon: 'fas fa-home', label: 'Beranda' },
