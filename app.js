@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
     { link: '/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
     { link: '/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
     { link: '/result', icon: 'fas fa-poll', label: 'Hasil' },
-    { link: '/settings', icon: 'fas fa-cogs', label: 'Pengaturan' },
+    { link: '/account', icon: 'fas fa-user-circle', label: 'Akun' },
   ]
   res.render('index', { navTitle: 'Beranda', navMenus })
 })
@@ -63,12 +63,19 @@ app.get('/result', (req, res) => {
 })
 
 // settings
-app.get('/settings', (req, res) => {
+app.get('/account', (req, res) => {
   const menus = [
-    { link: '/', icon: 'fas fa-user-circle', label: 'Akun' },
+    { link: '/', icon: 'fas fa-cogs', label: 'Pengaturan' },
+    { link: '/', icon: 'fas fa-user-circle', label: 'Set Kategori' },
+    { link: '/', icon: 'fas fa-user-circle', label: 'Panduan' },
+    { link: '/', icon: 'fas fa-user-circle', label: 'Tentang' },
+    { link: '/', icon: 'fas fa-user-circle', label: 'Kontak' },
   ]
-  const navMenus = []
-  res.render('pages/settings', { navTitle: 'Settings', menus, navMenus })
+  const navMenus = [
+    { link: '/', icon: 'fas fa-home', label: 'Beranda' },
+    { link: '/', icon: 'fas fa-sign-out-alt', label: 'Keluar' },
+  ]
+  res.render('pages/account', { navTitle: 'Akun', menus, navMenus })
 })
 
 // 404 page
