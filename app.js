@@ -10,10 +10,10 @@ const qbankRoutes = require('./routes/qbankRoutes')
 const app = express()
 const port = process.env.PORT || 2020
 const host = '0.0.0.0'
-const dbURI = 'mongodb://kitakoleksi.my.id:27017/node-wiss'
+const dbURI = 'mongodb://kitakoleksi.my.id:27017/node-auth'
 
 // MOngoDB Connect dan buka port app
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
   .then(result => {
     console.log(`Connected to DB at ${dbURI}`)
     // buka port
