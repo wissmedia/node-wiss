@@ -114,6 +114,10 @@ input[type=checkbox]{
     font-size: 15px;
 }
 
+.bunder{
+    border-radius: 50px;
+}
+
 /* Tombol Sukses */
 .tmb-sukses{
     background-color: #70AF85;
@@ -743,7 +747,7 @@ footer{
 }
 
 .form a{
-    color: #70AF85;
+    color: #424874;
 }
 
 .grup-input{
@@ -770,7 +774,7 @@ footer{
 }
 
 .grup-input:focus-within{
-    color: #70AF85;
+    color: #424874;;
 }
 
 .shortcut{
