@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser')
 
 const qbankRoutes = require('./routes/qbankRoutes')
 const authRoutes = require('./routes/authRoutes')
@@ -16,7 +17,7 @@ const host = '0.0.0.0'
 const dbURI = 'mongodb://nodewiss:nodewiss@kitakoleksi.my.id:2021/node-wiss'
 
 // MOngoDB Connect dan buka port app
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then(result => {
     console.log(`Connected to DB at ${dbURI}`)
     // buka port
@@ -26,16 +27,18 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
   })
   .catch(err => console.log(err))
 
-// register view engine
+// view engine
 app.set('view engine', 'ejs')
 
 // express middleware
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cookieParser())
 app.use(morgan('dev'))
 
 // -- END EXPRESS APP --
+
 
 // -- APP ROUTES --
 // index
@@ -47,6 +50,20 @@ app.get('/', (req, res) => {
     { link: '/account', icon: 'fas fa-user-circle', label: 'Akun' },
   ]
   res.render('index', { navTitle: 'Beranda', navMenus })
+})
+
+// COOKIES
+app.get('/set-cookies', (req, res) => {
+  // res.setHeader('Set-Cookie', 'newUser = true')
+  res.cookie('newUser', false, { httpOnly: true })
+  res.cookie('isEmployee', true, { maxAge: 1000 * 5 })
+  res.send('You got the cookie!')
+})
+app.get('/read-cookies', (req, res) => {
+  const cookies = req.cookies
+  console.log(cookies)
+
+  res.json(cookies)
 })
 
 // auth routes
@@ -93,3 +110,4 @@ app.use((req, res) => {
   res.status(404).render('404', { navTitle: '404' })
 })
 // -- END APP ROUTES --
+
