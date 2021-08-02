@@ -52,20 +52,6 @@ app.get('/', (req, res) => {
   res.render('index', { navTitle: 'Beranda', navMenus })
 })
 
-// COOKIES
-app.get('/set-cookies', (req, res) => {
-  // res.setHeader('Set-Cookie', 'newUser = true')
-  res.cookie('newUser', false, { httpOnly: true })
-  res.cookie('isEmployee', true, { maxAge: 1000 * 5 })
-  res.send('You got the cookie!')
-})
-app.get('/read-cookies', (req, res) => {
-  const cookies = req.cookies
-  console.log(cookies)
-
-  res.json(cookies)
-})
-
 // auth routes
 app.use(authRoutes)
 
@@ -111,3 +97,16 @@ app.use((req, res) => {
 })
 // -- END APP ROUTES --
 
+// // COOKIES
+// app.get('/set-cookies', (req, res) => {
+//   // res.setHeader('Set-Cookie', 'newUser = true')
+//   res.cookie('newUser', false, { httpOnly: true })
+//   res.cookie('isEmployee', true, { maxAge: 1000 * 5 })
+//   res.send('You got the cookie!')
+// })
+// app.get('/read-cookies', (req, res) => {
+//   const cookies = req.cookies
+//   console.log(cookies)
+
+//   res.json(cookies)
+// })
