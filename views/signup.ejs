@@ -5,19 +5,88 @@
 
   <body>
 
-    <%- include('./partials/nav.ejs') %>
+    <!-- <%- include('./partials/nav.ejs') %> -->
 
-      <div class="container">
-        <div class="card-container">
-          <!-- Code here -->
-          <h1>Sign Up</h1>
-          <!-- END Code Here -->
+    <div class="container">
+      <div class="row-content">
+        <div class="content">
+          <div class="form">
+            <div class="logo-form">
+              <img src="/icons/72.png" alt="Logo">
+            </div>
+            <p><%= navTitle %></p>
+            <div class="register-link">
+              <p>
+                <a href="/login">
+                  <strong>Log in</strong>
+                </a>
+                |
+                <a href="/">
+                  <strong>Home</strong>
+                </a>
+              </p>
+            </div>
+            <form action="">
+              <div class="grup-input">
+                <span>
+                  <i class="fas fa-user"></i>
+                </span>
+                <input type="text" name="name" id="nama" placeholder="Your Name" required>
+              </div>
+
+              <div class="grup-input">
+                <span>
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <input type="text" name="email" id="email" placeholder="Email" required>
+              </div>
+              <div class="email error"></div>
+
+              <div class="grup-input">
+                <span>
+                  <i class="fas fa-key"></i>
+                </span>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+              </div>
+              <div class="password error"></div>
+
+              <!-- <div class="grup-input">
+                <span>
+                  <i class="fas fa-lock"></i>
+                </span>
+                <input type="password" name="konfirmasi" id="konfirmasi" placeholder="Re-type password" required>
+              </div> -->
+
+              <!-- <div class="grup-input">
+                <span>
+                  <i class="fas fa-info"></i>
+                </span>
+                <input type="text" name="bio" id="bio" placeholder="Your Bio">
+              </div> -->
+              
+              <button class="tombol tmb-utama bunder">Sign up</button>
+            </form>
+          </div>
         </div>
       </div>
+    </div>
 
-      <%- include('./partials/footer.ejs') %>
+    <!-- <%- include('./partials/footer.ejs') %> -->
+    <script>
+      const form = document.querySelector('form')
 
-        <script src="/js/main.js"></script>
+      form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        //get the values
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+
+        console.log(name, email, password)
+      })
+    </script>
+    <script src="/js/main.js"></script>
 
   </body>
 
