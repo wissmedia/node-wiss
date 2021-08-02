@@ -19,14 +19,10 @@ const handleErrors = (err) => {
 }
 
 const signup_get = (req, res) => {
-  const menus = []
-  const navMenus = []
-  res.render('signup', { navTitle: "Daftar", menus, navMenus, })
+  res.render('signup', { navTitle: "Sign Up session" })
 }
 const login_get = (req, res) => {
-  const menus = []
-  const navMenus = []
-  res.render('login', { navTitle: "Masuk", menus, navMenus, })
+  res.render('login', { navTitle: "Login session" })
 }
 const signup_post = async (req, res) => {
   const { email, password } = req.body
