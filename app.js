@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 
-const { requireAuth } = require('./middleware/authMiddleware')
+const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 const qbankRoutes = require('./routes/qbankRoutes')
 const authRoutes = require('./routes/authRoutes')
 // -- END IMPORT--
@@ -42,6 +42,7 @@ app.use(morgan('dev'))
 
 
 // -- APP ROUTES --
+app.get('*', checkUser)
 // index
 app.get('/', (req, res) => {
   const navMenus = [
