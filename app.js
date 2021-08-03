@@ -58,24 +58,24 @@ app.get('/', (req, res) => {
 app.use(authRoutes)
 
 // qbank routes
-app.use('/qbank', qbankRoutes)
+app.use('/qbank', requireAuth, qbankRoutes)
 
 // kuesioner
-app.get('/quesioner', requireAuth , (req, res) => {
+app.get('/quesioner', requireAuth, (req, res) => {
   const menus = []
   const navMenus = []
   res.render('pages/quesioner', { navTitle: 'Quesioner', menus, navMenus })
 })
 
 // hasil
-app.get('/result', (req, res) => {
+app.get('/result', requireAuth, (req, res) => {
   const menus = []
   const navMenus = []
   res.render('pages/result', { navTitle: 'Result', menus, navMenus })
 })
 
 // settings
-app.get('/account', (req, res) => {
+app.get('/account', requireAuth, (req, res) => {
   const menus = [
     { link: '/', icon: 'fas fa-cogs', label: 'Pengaturan' },
     { link: '/', icon: 'fas fa-user-circle', label: 'Set Kategori' },
