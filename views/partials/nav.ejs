@@ -5,13 +5,23 @@
         <%= navTitle %>
       </a>
     </div>
-    <ul>
-      <% if (user) { %>
-        <li>Welcome, <%= user.email %></li>
-        <li><a href="/logout">Log out</a></li>
+
+    <div class="user">
+      <a onclick="tampilMenu()" class="userbtn"><i class="far fa-user-circle"></i></a>
+    </div>
+  </div>
+  <div id="menuakun" class="menu-list">
+
+    <% if (user) { %>
+      <div class="username">
+        <h3>
+          <%= user.email %>
+        </h3>
+      </div>
+      <a href="/logout">Logout</a>
       <% } else { %>
-        <li><a href="/login">Log in</a></li>
-        <li><a href="/signup" class="btn">Sign up</a></li>
-      <% } %>
-    </ul>
+        <a href="/signup">Register</a>
+        <a href="/login">Login</a>
+        <% } %>
+  </div>
 </nav>
