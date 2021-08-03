@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 
+const { requireAuth } = require('./middleware/authMiddleware')
 const qbankRoutes = require('./routes/qbankRoutes')
 const authRoutes = require('./routes/authRoutes')
 // -- END IMPORT--
@@ -59,7 +60,7 @@ app.use(authRoutes)
 app.use('/qbank', qbankRoutes)
 
 // kuesioner
-app.get('/quesioner', (req, res) => {
+app.get('/quesioner', requireAuth , (req, res) => {
   const menus = []
   const navMenus = []
   res.render('pages/quesioner', { navTitle: 'Quesioner', menus, navMenus })
