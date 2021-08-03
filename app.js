@@ -93,10 +93,17 @@ app.get('/account', requireAuth, (req, res) => {
   res.render('pages/account', { navTitle: 'Akun', menus, navMenus })
 })
 
+// fallback
+app.get('/fallback',(req, res) => {
+  const navMenus = []
+  res.render('fallback', { navTitle: '404', navMenus })
+})
+
 // 404 page
 app.use((req, res) => {
   res.status(404).render('404', { navTitle: '404' })
 })
+
 // -- END APP ROUTES --
 
 // // COOKIES
