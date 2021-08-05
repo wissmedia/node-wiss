@@ -46,7 +46,7 @@ const signup_post = async (req, res) => {
   const { name, email, password } = req.body
 
   try {
-    const user = await User.create({ email, password, name })
+    const user = await User.create({ email, password, name, bio })
     const token = createToken(user._id)
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
     res.status(201).json({ user: user._id })
