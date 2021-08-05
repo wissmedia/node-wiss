@@ -43,7 +43,7 @@ const login_get = (req, res) => {
   res.render('login', { navTitle: "Login session" })
 }
 const signup_post = async (req, res) => {
-  const { name, email, password } = req.body
+  const { name, email, password, bio } = req.body
 
   try {
     const user = await User.create({ email, password, name, bio })
