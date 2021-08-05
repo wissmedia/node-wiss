@@ -82,13 +82,10 @@ app.get('/account', requireAuth, (req, res) => {
     { link: '/', icon: 'fas fa-user-circle', label: 'Panduan' },
     { link: '/', icon: 'fas fa-user-circle', label: 'Tentang' },
     { link: '/', icon: 'fas fa-user-circle', label: 'Kontak' },
-    { link: '/signup', icon: 'fas fa-user-circle', label: 'Daftar' },
-    { link: '/login', icon: 'fas fa-user-circle', label: 'Masuk' },
-    { link: '/logout', icon: 'fas fa-user-circle', label: 'Keluar' },
   ]
   const navMenus = [
     { link: '/', icon: 'fas fa-home', label: 'Beranda' },
-    { link: '/', icon: 'fas fa-sign-out-alt', label: 'Keluar' },
+    { link: '/logout', icon: 'fas fa-sign-out-alt', label: 'Keluar' },
   ]
   res.render('pages/account', { navTitle: 'Akun', menus, navMenus })
 })
