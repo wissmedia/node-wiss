@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v0';
+const staticCacheName = 'site-static-v1';
 const dynamicCacheName = 'site-dynamic-v0';
 const assets = [
   '/',
@@ -10,6 +10,9 @@ const assets = [
   '/icons/webfonts/fa-solid-900.woff2',
   '/icons/72.png',
   '/icons/192.png',
+  '/icons/512.png',
+  '/icons/maskable_icon_x192.png',
+  '/icons/maskable_icon_x512.png',
   '/fallback',
 ]
 
