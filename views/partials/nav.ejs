@@ -15,8 +15,9 @@
     <% if (user) { %>
       <div class="username">
         <h3>
-          <%= user.email %>
+          <%= user.name %>
         </h3>
+        <span><%= user.bio %> </span>
       </div>
       <a href="/logout">Logout</a>
       <% } else { %>
