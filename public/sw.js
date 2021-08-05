@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v1';
+const staticCacheName = 'site-static-v0';
 const dynamicCacheName = 'site-dynamic-v0';
 const assets = [
   '/',
@@ -29,7 +29,7 @@ const limitCacheSize = (name, size) => {
 
 // install event
 self.addEventListener('install', evt => {
-  //console.log('service worker installed');
+  console.log('service worker installed');
   evt.waitUntil(
     caches.open(staticCacheName).then((cache) => {
       console.log('caching shell assets');
@@ -40,10 +40,10 @@ self.addEventListener('install', evt => {
 
 // activate event
 self.addEventListener('activate', evt => {
-  //console.log('service worker activated');
+  console.log('service worker activated');
   evt.waitUntil(
     caches.keys().then(keys => {
-      //console.log(keys);
+      console.log(keys);
       return Promise.all(keys
         .filter(key => key !== staticCacheName && key !== dynamicCacheName)
         .map(key => caches.delete(key))
@@ -54,7 +54,6 @@ self.addEventListener('activate', evt => {
 
 // fetch event
 self.addEventListener('fetch', evt => {
-  //console.log('fetch event', evt);
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
       return cacheRes || fetch(evt.request).then(fetchRes => {
